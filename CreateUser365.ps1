@@ -149,11 +149,12 @@ if (!(Test-Connection 8.8.8.8 -Count 2 -ErrorAction SilentlyContinue)) {
     #endregion .. Internet Connectivity
 
     #region Modules installation
-if (($null -eq (Get-Module -ListAvailable -Name AzureAD)) -or ($null -eq (Get-Module -ListAvailable -Name MSOnline)) -or ($null -eq (Get-Module -ListAvailable -Name PSExcel))) {
+if (($null -eq (Get-Module -ListAvailable -Name AzureAD)) -or ($null -eq (Get-Module -ListAvailable -Name MSOnline)) -or ($null -eq (Get-Module -ListAvailable -Name PSExcel)) -or ($null -eq (Get-Module -ListAvailable -Name Microsoft.Exchange.Management.ExoPowershellModule)) ) {
     try {
         Install-Module AzureAD -Confirm:$False -Force
         Install-Module MSOnline -Confirm:$False -Force
         Install-Module PSExcel -Confirm:$False -Force
+        Install-Module Microsoft.Exchange.Management.ExoPowershellModule -Confirm:$False -Force
     } catch {
         Write-Host "Run the following commands in evaluated Powershell Cmdlet: `
         Install-Module AzureAD -Confirm:$False -Force `
