@@ -28,9 +28,6 @@ param(
 
 #endregion Param
 
-#region Input from user
-$domain = ""
-
 #region Functions
 
 <# Function to write logs and outputs to console #>
