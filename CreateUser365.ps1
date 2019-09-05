@@ -261,7 +261,7 @@ foreach ($User in $Users)
         $phone = $null
     }
     
-    if($user.All_Group -eq $null){
+    if($user.All_Group -ne $null){
         $AllGroup = ($AllGroups | Where-Object {$_.DisplayName -like "*$($user.All_Group)*"}).ObjectId
      }
         $ProjGroup = ($AllGroups | Where-Object {$_.DisplayName -like "*$($user.proj)*"}).ObjectId
