@@ -261,8 +261,11 @@ foreach ($User in $Users)
         $phone = $null
     }
     
-    $AllGroup = ($AllGroups | Where-Object {$_.DisplayName -like "*$($user.All_Group)*"}).ObjectId
-    $ProjGroup = ($AllGroups | Where-Object {$_.DisplayName -like "*$($user.proj)*"}).ObjectId
+    if($user.All_Group -eq $null){
+        $AllGroup = ($AllGroups | Where-Object {$_.DisplayName -like "*$($user.All_Group)*"}).ObjectId
+     }
+        $ProjGroup = ($AllGroups | Where-Object {$_.DisplayName -like "*$($user.proj)*"}).ObjectId
+    
     #endregion .. User Properties
     
     #region Create Groups
